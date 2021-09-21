@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
@@ -43,4 +43,8 @@ const GlobalStyle = createGlobalStyle`
     transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
   }
 `
-export { GlobalStyle }
+
+export const HorizontalRule = styled.hr`
+  margin-top: 70px;
+  margin-bottom: 30px;
+`
