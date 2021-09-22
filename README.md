@@ -1,5 +1,15 @@
 # Programming assignment
 
+## Installation
+
+```
+git clone https://github.com/mjnoach/strapi-nextjs-blog.git
+yarn --cwd frontend install
+yarn --cwd backend install
+cp backend/.env.example backend/.env // <-- JWT_SECRET
+yarn develop
+```
+
 ## Assignment
 
 Your assignment is to create a commenting system for the individual blog items on an existing website. There is NO account / login required to place comments. They do require moderation by the blog team for the comments to be visible on the blog item.
