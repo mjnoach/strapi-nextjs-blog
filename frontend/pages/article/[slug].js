@@ -73,7 +73,7 @@ export async function getStaticProps({ params }) {
   const article = articles[0]
   const categories = await fetchAPI("/categories")
   const comments = await fetchAPI(
-    `/comments?approved=true&article=${article.id}`
+    `/comments?approved=true&article=${article.id}&_sort=created_at:DESC`
   )
 
   return {
