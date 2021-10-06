@@ -11,6 +11,8 @@ import {
   ValidationError,
   Submit,
 } from "styles/comment-form.style"
+import { Animation } from "components/Animation"
+import { fadeInDown } from "components/Animation/springs"
 import { RichTextEditor } from "./rich-text-editor"
 
 const CommentForm = ({ article }) => {
@@ -89,7 +91,9 @@ const CommentForm = ({ article }) => {
 const Validation = ({ errors }) => {
   return (
     errors?.type === "required" && (
-      <ValidationError>This field is required</ValidationError>
+      <Animation spring={fadeInDown} config={{ duration: 200 }}>
+        <ValidationError>This field is required</ValidationError>
+      </Animation>
     )
   )
 }

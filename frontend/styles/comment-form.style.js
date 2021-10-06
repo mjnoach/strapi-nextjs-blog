@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components"
-import { animationFadeInDown } from "styles/animations.style"
 
 const shapeCloud = css`
   width: 100px;
@@ -70,9 +69,7 @@ export const Textarea = styled.textarea.attrs({
   ${inputText}
 `
 
-export const ValidationError = styled.span`
-  ${animationFadeInDown}
-
+export const ValidationError = styled.div`
   color: #ff0000;
 `
 
