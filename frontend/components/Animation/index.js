@@ -1,3 +1,3 @@
-import { Animation } from "./Animation"
+import { Animation, useAnimation } from "./Animation"
 
-export { Animation }
+export { Animation, useAnimation }

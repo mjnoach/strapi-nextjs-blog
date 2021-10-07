@@ -19,8 +19,6 @@ const CommentForm = ({ article }) => {
   const methods = useForm()
   const {
     register,
-    handleSubmit,
-    reset,
     formState: { errors },
   } = methods
 
@@ -34,14 +32,14 @@ const CommentForm = ({ article }) => {
       body: JSON.stringify(data),
     })
 
-    res.ok && reset()
+    res.ok && methods.reset()
   }
 
   return (
     <>
       <HorizontalRule />
       <FormProvider {...methods}>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={methods.handleSubmit(onSubmit)}>
           <Row>
             <Label htmlFor="name">
               <h4>name</h4>
