@@ -2,7 +2,8 @@
   "extends": [
     "next",
     "next/babel",
-    "prettier"
+    "prettier",
+    "plugin:react-hooks/recommended"
   ],
   "plugins": [
     "prettier"
