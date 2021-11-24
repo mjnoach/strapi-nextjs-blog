@@ -11,18 +11,27 @@ import {
   ValidationError,
   Submit,
 } from "styles/comment-form.style"
-import { Animation } from "components/Animation"
-import { fadeInDown } from "components/Animation/springs"
+import { Animation, useAnimationControl } from "components/Animation"
+import { fadeInDown, fadeOut } from "components/Animation/springs"
 import { RichTextEditor } from "./rich-text-editor"
 
 const CommentForm = ({ article }) => {
-  const methods = useForm()
+  const methods = useForm({
+    defaultValues: {
+      name: "My Name",
+      email: "my@email.com",
+      body: "Lorem ipsum dolor **bla bla bla**",
+    },
+  })
   const {
     register,
     formState: { errors },
   } = methods
 
+  const [submitAnimation, toggleSubmitAnimation] = useAnimationControl()
+
   const onSubmit = async (data) => {
+    toggleSubmitAnimation("on")
     const requestUrl = getStrapiURL("/comments")
     const res = await fetch(requestUrl, {
       method: "POST",
@@ -78,7 +87,14 @@ const CommentForm = ({ article }) => {
           />
 
           <Submit>
-            <FontAwesomeIcon icon={faPaperPlane} size="3x" />
+            <Animation
+              state={submitAnimation}
+              toggleAnimation={toggleSubmitAnimation}
+              spring={fadeOut}
+              config={{ duration: 2000 }}
+            >
+              <FontAwesomeIcon icon={faPaperPlane} size="3x" />
+            </Animation>
           </Submit>
         </Form>
       </FormProvider>

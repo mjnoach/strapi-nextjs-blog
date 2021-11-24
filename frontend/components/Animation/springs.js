@@ -26,3 +26,11 @@ export const fadeInDown = (config, { domRect }) => ({
   ...fadeIn(config),
   ...slideDown(config, { domRect }),
 })
+
+export const fadeOut = (config, { onRest }) =>
+  useSpring({
+    config,
+    from: { opacity: 1 },
+    to: { opacity: 0 },
+    onRest,
+  })

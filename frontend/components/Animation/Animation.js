@@ -43,7 +43,7 @@ export const Animation = ({
  *  animation - animation state
  *  toggleAnimation - a function for toggling or setting animation state ["on", "off"]
  */
-export const useAnimation = () => {
+export const useAnimationControl = () => {
   const state = {
     on: 1,
     off: 0,
